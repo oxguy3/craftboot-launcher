@@ -47,7 +47,7 @@
   </dependencies>
 
   <build>
-    <finalName>CraftBoot Launcher</finalName>
+    <finalName>craftboot-launcher</finalName>
 
     <resources>
       <resource>
