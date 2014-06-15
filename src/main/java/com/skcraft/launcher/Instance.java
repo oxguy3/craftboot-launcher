@@ -101,6 +101,16 @@ public class Instance implements Comparable<Instance> {
         return new File(getContentDir(), "custom_jar.jar");
     }
 
+    /**
+     * Get the file for the custom icon image.
+     *
+     * @return the icon image, which may not exist
+     */
+    @JsonIgnore
+    public File getCustomIconPath() {
+        return new File(getContentDir(), "custom_icon.png");
+    }
+
     @Override
     public String toString() {
         return name;

@@ -296,6 +296,26 @@ public final class SwingHelper {
         }
         return null;
     }
+    
+    /**
+     * Reads an icon image that is not contained within the launcher's JAR file
+     * 
+     * @param path the file path of the icon image
+     * @return the icon image
+     */
+    public static BufferedImage readExternalIconImage(File path) {
+        InputStream in = null;
+        try {
+            in = new FileInputStream(path);
+            if (in != null) {
+                return ImageIO.read(in);
+            }
+        } catch (IOException e) {
+        } finally {
+            closeQuietly(in);
+        }
+        return null;
+    }
 
     public static void setIconImage(JFrame frame, Class<?> clazz, String path) {
         BufferedImage image = readIconImage(clazz, path);

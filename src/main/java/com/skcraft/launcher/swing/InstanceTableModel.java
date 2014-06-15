@@ -105,6 +105,11 @@ public class InstanceTableModel extends AbstractTableModel {
                 if (!instance.isLocal()) {
                     return downloadIcon;
                 } else if (instance.getManifestURL() != null) {
+                	if (instance.getCustomIconPath().exists()) {
+                		ImageIcon customIcon = new ImageIcon(SwingHelper.readExternalIconImage(instance.getCustomIconPath())
+                                .getScaledInstance(16, 16, Image.SCALE_SMOOTH));
+                		return customIcon;
+                	}
                     return instanceIcon;
                 } else {
                     return customInstanceIcon;
