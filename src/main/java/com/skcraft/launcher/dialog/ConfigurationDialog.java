@@ -142,6 +142,13 @@ public class ConfigurationDialog extends JDialog {
                 ConsoleFrame.showMessages();
             }
         });
+
+        minMemorySpinner.setModel(new SpinnerNumberModel(config.getMinMemory(), 0, Integer.MAX_VALUE, 256));
+        maxMemorySpinner.setModel(new SpinnerNumberModel(config.getMaxMemory(), 0, Integer.MAX_VALUE, 256));
+        permGenSpinner.setModel(new SpinnerNumberModel(config.getPermGen(), 0, Integer.MAX_VALUE, 64));
+        widthSpinner.setModel(new SpinnerNumberModel(config.getWindowWidth(), 0, Integer.MAX_VALUE, 1));
+        heightSpinner.setModel(new SpinnerNumberModel(config.getWidowHeight(), 0, Integer.MAX_VALUE, 1));
+        proxyPortText.setModel(new SpinnerNumberModel(config.getProxyPort(), 0, 65535, 1));
     }
 
     /**
