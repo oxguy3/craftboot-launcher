@@ -28,7 +28,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 public class Manifest extends BaseManifest {
 
-    public static final int MIN_PROTOCOL_VERSION = 2;
+    public static final int MIN_PROTOCOL_VERSION = 3;
 
     private int minimumVersion;
     private URL baseUrl;
@@ -43,6 +43,7 @@ public class Manifest extends BaseManifest {
     @Getter @Setter @JsonIgnore
     private Installer installer;
     private VersionManifest versionManifest;
+    private RecommendedOptions recommendedOptions;
 
     @JsonIgnore
     public URL getLibrariesUrl() {
@@ -90,5 +91,6 @@ public class Manifest extends BaseManifest {
 
     public void update(Instance instance) {
         instance.setLaunchModifier(getLaunchModifier());
+        instance.setRecommendedOptions(getRecommendedOptions());
     }
 }

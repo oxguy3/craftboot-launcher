@@ -9,6 +9,8 @@ package com.skcraft.launcher.builder;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.skcraft.launcher.model.modpack.LaunchModifier;
 import com.skcraft.launcher.model.modpack.Manifest;
+import com.skcraft.launcher.model.modpack.RecommendedOptions;
+
 import lombok.Data;
 
 import java.util.List;
@@ -26,12 +28,14 @@ public class BuilderConfig {
     private LaunchModifier launchModifier;
     private List<FeaturePattern> features;
     private FnPatternList userFiles;
+    private RecommendedOptions recommendedOptions;
 
     public void update(Manifest manifest) {
         manifest.updateName(getName());
         manifest.updateTitle(getTitle());
         manifest.updateGameVersion(getGameVersion());
         manifest.setLaunchModifier(getLaunchModifier());
+        manifest.setRecommendedOptions(getRecommendedOptions());
     }
 
     public void registerProperties(PropertiesApplicator applicator) {

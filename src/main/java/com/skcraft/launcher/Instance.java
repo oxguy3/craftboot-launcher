@@ -10,6 +10,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.skcraft.launcher.launch.JavaProcessBuilder;
 import com.skcraft.launcher.model.modpack.LaunchModifier;
+import com.skcraft.launcher.model.modpack.RecommendedOptions;
+
 import lombok.Data;
 
 import java.io.File;
@@ -31,6 +33,7 @@ public class Instance implements Comparable<Instance> {
     private Date lastAccessed;
     @JsonProperty("launch")
     private LaunchModifier launchModifier;
+    private RecommendedOptions recommendedOptions;
 
     @JsonIgnore private File dir;
     @JsonIgnore private URL manifestURL;
